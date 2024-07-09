@@ -8,17 +8,7 @@
 
 <script>
    
-let loc = new URL('http://example.com/?firstname=tes&lastname=demo');
 let url = decodeURI(window.location.href);
-function getUrlVars() {
- 
-    var vars = {};
-    var parts = url.replace(/[?&]+([^=&]+)=([^&]*)/gi,    
-    function(m,key,value) {
-      vars[key] = value;
-    });
-    return vars;
-  }
   
   var GetParameters = function (url) {
     var splitParametersFromUrl = url.split('?');
