@@ -8,8 +8,8 @@
 
 <script>
    
-   let loc = new URL('http://example.com/?firstname=tes&lastname=demo');
-	let url = window.location.href;
+let loc = new URL('http://example.com/?firstname=tes&lastname=demo');
+let url = decodeURI(window.location.href);
 function getUrlVars() {
  
     var vars = {};
