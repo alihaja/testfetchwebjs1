@@ -45,8 +45,13 @@ var params = getUrlVars();
 
 var resualt = GetParameters(url);
 
+var fullname = resualt[0]["Value"];
+if(resualt.length > 1) {
+	fullname += " " + resualt[1]["Value"];
+}
+	
 document.getElementById("demo").innerHTML = 
-"The full URL of this page is:<br>" + resualt[1]["Value"];
+"The full URL of this page is:<br>" + fullname;
 //params["firstname"];
 </script>
 
