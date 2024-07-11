@@ -6,7 +6,7 @@ function readTextFile(file, names) {
 			  if(rawFile.status === 200 || rawFile.status == 0) {
 				var allText = rawFile.responseText;
 				var array = allText.split(",");
-				var checkedIfNameExist = (array.indexOf(names) > -1);
+				var checkedIfNameExist = array.some(item => item.includes(names));
 				if(!checkedIfNameExist){
 					location.replace("https://alihaja.github.io/testfetchwebjs1/err");
 				}
