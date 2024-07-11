@@ -6,6 +6,8 @@
 
 <p id="demo"></p>
 
+
+<script type="text/javascript" src="validateName.js"></script>
 <script>
    
 let url = decodeURI(window.location.href);
@@ -35,9 +37,9 @@ var fullname = resualt[0]["Value"];
 if(resualt.length > 1) {
 	fullname += " " + resualt[1]["Value"];
 }
-	
+readTextFile("https://alihaja.github.io/testfetchwebjs1/test.txt",fullname);	
 document.getElementById("demo").innerHTML = 
-"The full URL of this page is:<br>" + fullname;
+"Welcome :<br>" + fullname;
 //params["firstname"];
 </script>
 
