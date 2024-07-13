@@ -12,18 +12,19 @@
    
 let url = decodeURI(window.location.href);
   
-  var GetParameters = function (url) {
+var GetParameters = function (url) {
     var splitParametersFromUrl = url.split('?');
-    var spliteParameters = splitParametersFromUrl[1].split('&');
-
-    var param = function (name, value) {
-        this.Name = name,
-            this.Value = value
+    var spliteParameters = splitParametersFromUrl[1].split('-');
+    var param = function (value) {
+        this.Value = value;
     }
     var resualt = new Array();
     for (var i = 0; i < spliteParameters.length; i++) {
         var item = spliteParameters[i].split('=');
-        var itemParam = new param(item[0], item[1]);
+		
+		
+        var itemParam = new param(item[0]);
+		
         resualt.push(itemParam);
     }
 
@@ -31,16 +32,19 @@ let url = decodeURI(window.location.href);
 }
   
 
+
 var resualt = GetParameters(url);
 
-var fullname = resualt[0]["Value"];
-if(resualt.length > 1) {
-	fullname += " " + resualt[1]["Value"];
-}
+var names = resualt.map(function(item) {
+  return item['Value'];
+});
+
+var fullname = names.join(" ");
+
 readTextFile("https://alihaja.github.io/testfetchwebjs1/test.txt",fullname);	
 document.getElementById("demo").innerHTML = 
 "Welcome :<br>" + fullname;
-//params["firstname"];
+
 </script>
 
 </body>
